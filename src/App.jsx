@@ -11,22 +11,60 @@ export default function App() {
     <div style={{ fontFamily: "Arial, sans-serif", minHeight: "100vh", backgroundColor: "#f4f6f9" }}>
       
       {/* KHU VỰC DIỀU HƯỚNG NHANH (MENU THANH TRÊN) */}
-      <nav style={{ display: "flex", justifyContent: "center", gap: "20px", padding: "15px", backgroundColor: "#fff", boxShadow: "0 2px 4px rgba(0,0,0,0.1)" }}>
-        <button 
-          onClick={() => setCurrentPage("login")} 
-          style={{ padding: "8px 16px", cursor: "pointer", fontWeight: currentPage === "login" ? "bold" : "normal", color: currentPage === "login" ? "#007bff" : "#333", border: "none", background: "none" }}
+      <style>{`
+        .nav-bar {
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+          padding: 14px 18px;
+          background: rgba(126, 94, 255, 0.14);
+          border-radius: 999px;
+          border: 1px solid rgba(126, 94, 255, 0.24);
+          box-shadow: 0 18px 36px rgba(90, 55, 255, 0.12);
+          backdrop-filter: blur(10px);
+          margin: 0 20px;
+        }
+
+        .nav-tab {
+          appearance: none;
+          border: none;
+          background: transparent;
+          color: #4f3f8f;
+          padding: 10px 20px;
+          border-radius: 999px;
+          cursor: pointer;
+          font-weight: 600;
+          transition: all 0.3s ease;
+        }
+
+        .nav-tab:hover {
+          color: #2e1aa8;
+          background: rgba(143, 107, 255, 0.18);
+          transform: translateY(-1px);
+        }
+
+        .nav-tab.active {
+          color: #2a1163;
+          background: rgba(143, 107, 255, 0.26);
+          box-shadow: 0 10px 24px rgba(94, 60, 255, 0.18);
+        }
+      `}</style>
+      <nav className="nav-bar">
+        <button
+          className={`nav-tab ${currentPage === "login" ? "active" : ""}`}
+          onClick={() => setCurrentPage("login")}
         >
           Trang Đăng Nhập
         </button>
-        <button 
-          onClick={() => setCurrentPage("register")} 
-          style={{ padding: "8px 16px", cursor: "pointer", fontWeight: currentPage === "register" ? "bold" : "normal", color: currentPage === "register" ? "#28a745" : "#333", border: "none", background: "none" }}
+        <button
+          className={`nav-tab ${currentPage === "register" ? "active" : ""}`}
+          onClick={() => setCurrentPage("register")}
         >
           Trang Đăng Ký
         </button>
-        <button 
-          onClick={() => setCurrentPage("tasks")} 
-          style={{ padding: "8px 16px", cursor: "pointer", fontWeight: currentPage === "tasks" ? "bold" : "normal", color: currentPage === "tasks" ? "#6f42c1" : "#333", border: "none", background: "none" }}
+        <button
+          className={`nav-tab ${currentPage === "tasks" ? "active" : ""}`}
+          onClick={() => setCurrentPage("tasks")}
         >
           Quản lý công việc
         </button>
