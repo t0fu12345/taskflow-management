@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import Login from "./pages/Login";       
 import Register from "./pages/Register"; 
+import Tasks from "./pages/Tasks";
 
 export default function App() {
-  // Dùng state để quản lý xem đang ở trang nào ('login' hoặc 'register')
+  // Dùng state để quản lý xem đang ở trang nào ('login' or 'register' or 'tasks')
   const [currentPage, setCurrentPage] = useState("login");
 
   return (
@@ -23,11 +24,17 @@ export default function App() {
         >
           Trang Đăng Ký
         </button>
+        <button 
+          onClick={() => setCurrentPage("tasks")} 
+          style={{ padding: "8px 16px", cursor: "pointer", fontWeight: currentPage === "tasks" ? "bold" : "normal", color: currentPage === "tasks" ? "#6f42c1" : "#333", border: "none", background: "none" }}
+        >
+          Quản lý công việc
+        </button>
       </nav>
 
       {/* HIỂN THỊ COMPONENT TƯƠNG ỨNG DỰA VÀO STATE */}
       <div style={{ padding: "20px" }}>
-        {currentPage === "login" ? <Login /> : <Register />}
+  {currentPage === "login" ? <Login /> : currentPage === "register" ? <Register /> : <Tasks />}
       </div>
 
     </div>
