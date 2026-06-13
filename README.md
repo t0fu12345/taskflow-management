@@ -8,6 +8,7 @@ Hệ thống quản lý công việc nhóm – cho phép người dùng đăng k
 
 - [Giới thiệu hệ thống](#giới-thiệu-hệ-thống)
 - [Tính năng chính](#tính-năng-chính)
+- [Quản lý công việc](#quản-lý-công-việc)
 - [Hướng dẫn cài đặt](#hướng-dẫn-cài-đặt)
 - [Hướng dẫn sử dụng](#hướng-dẫn-sử-dụng)
 - [Quy trình làm việc nhóm (Git Workflow)](#quy-trình-làm-việc-nhóm-git-workflow)
@@ -18,7 +19,7 @@ Hệ thống quản lý công việc nhóm – cho phép người dùng đăng k
 
 ## 🖥️ Giới thiệu hệ thống
 
-**TaskFlow Management** là ứng dụng web hỗ trợ quản lý công việc cá nhân và nhóm. Người dùng có thể:
+**TaskFlow** là ứng dụng web hỗ trợ quản lý công việc cá nhân và nhóm. Người dùng có thể:
 
 - Đăng ký và đăng nhập tài khoản an toàn.
 - Tạo, chỉnh sửa và xóa công việc.
@@ -31,12 +32,32 @@ Dự án được xây dựng trong khuôn khổ học tập thực hành Git & 
 
 ## ✨ Tính năng chính
 
-|         Tính năng        |                       Mô tả                               |
-|--------------------------|-----------------------------------------------------------|
-| 🔐 Xác thực người dùng  | Đăng ký, đăng nhập, kiểm tra dữ liệu đầu vào              |
-| ✅ Quản lý công việc    | Thêm, sửa, xóa công việc (CRUD)                           |
-| 🔄 Trạng thái công việc | Chuyển đổi giữa To Do / In Progress / Done                |
-| 📊 Thống kê             | Hiển thị bảng tổng hợp số lượng công việc theo trạng thái |
+| Tính năng | Mô tả |
+|---|---|
+| 🔐 Xác thực người dùng | Đăng ký, đăng nhập, kiểm tra dữ liệu đầu vào |
+| ✅ Quản lý công việc | Thêm, sửa, xóa công việc (CRUD) |
+| 🔄 Trạng thái công việc | Chuyển đổi giữa To Do / In Progress / Done |
+| 📊 Thống kê | Hiển thị bảng tổng hợp số lượng công việc theo trạng thái |
+
+---
+
+## ✅ Quản lý công việc
+
+Chức năng quản lý công việc cho phép người dùng tổ chức và theo dõi tiến độ công việc hiệu quả.
+
+### Các thao tác cơ bản
+
+- **Thêm công việc:** Nhấn nút **+ Thêm** để tạo task mới với tiêu đề và mô tả.
+- **Chỉnh sửa:** Nhấn biểu tượng ✏️ để cập nhật nội dung công việc.
+- **Xóa:** Nhấn biểu tượng 🗑️ để xóa công việc không còn cần thiết.
+
+### Trạng thái công việc
+
+| Trạng thái | Ý nghĩa | Màu nhãn |
+|---|---|---|
+| 🔵 To Do | Công việc chưa bắt đầu | Xanh dương |
+| 🟡 In Progress | Đang thực hiện | Vàng |
+| 🟢 Done | Đã hoàn thành | Xanh lá |
 
 ---
 
@@ -111,14 +132,14 @@ main
  ├── feature/authentication      (Thành viên 1)
  ├── feature/task-management     (Thành viên 2)
  ├── feature/task-status         (Thành viên 3)
- └── feature/report-and-docs     (Thành viên 4, 5)
+ └── feature/report-and-docs     (Thành viên 4)
 ```
 
 ### Quy trình từng thành viên
 
 ```bash
 # 1. Clone repository (chỉ làm 1 lần)
-git clone https://github.com/t0fu12345/taskflow-management.git
+git clone https://github.com/<tên-nhóm-trưởng>/taskflow-management.git
 cd taskflow-management
 
 # 2. Tạo và chuyển sang branch của mình
@@ -144,24 +165,23 @@ git push origin feature/<tên-branch>
 
 ## 📋 Phân công công việc
 
-|   Thành viên   |                   Công việc                  |          Branch           |
-|----------------|----------------------------------------------|---------------------------|
-| Thành viên 1   | Đăng ký, đăng nhập, kiểm tra dữ liệu đầu vào | `feature/authentication`  |
-| Thành viên 2   | Thêm, sửa, xóa công việc (CRUD)              | `feature/task-management` |
-| Thành viên 3   | Quản lý & hiển thị trạng thái công việc      | `feature/task-status`     |
-| Thành viên 4,5 | Trang thống kê & tài liệu dự án              | `feature/report-and-docs` |
+| Thành viên | Công việc | Branch |
+|---|---|---|
+| Thành viên 1 | Đăng ký, đăng nhập, kiểm tra dữ liệu đầu vào | `feature/authentication` |
+| Thành viên 2 | Thêm, sửa, xóa công việc (CRUD) | `feature/task-management` |
+| Thành viên 3 | Quản lý & hiển thị trạng thái công việc | `feature/task-status` |
+| Thành viên 4 | Trang thống kê & tài liệu dự án | `feature/report-and-docs` |
 
 ---
 
 ## 👥 Danh sách thành viên
 
-| STT |      Họ và tên    |       Vai trò       |
-|-----|-------------------|---------------------|
-|  1  | Nguyễn Anh Thư    | Quản lý người dùng  |
-|  2  | Đặng Ngọc Quang   | Quản lý công việc   |
-|  3  | Trần Tuấn Hùng    | Quản lý trạng thái  |
-|  4  | Lê Đắc Minh Quang | Thống kê & Tài liệu |
-|  5  | Cao Việt Cường    | Thống kê & Tài liệu |
+| STT | Họ và tên | Vai trò | GitHub |
+|---|---|---|---|
+| 1 | _(Tên thành viên 1)_ | Quản lý người dùng | [@username1](https://github.com/username1) |
+| 2 | _(Tên thành viên 2)_ | Quản lý công việc | [@username2](https://github.com/username2) |
+| 3 | _(Tên thành viên 3)_ | Quản lý trạng thái | [@username3](https://github.com/username3) |
+| 4 | _(Tên thành viên 4)_ | Thống kê & Tài liệu | [@username4](https://github.com/username4) |
 
 ---
 
